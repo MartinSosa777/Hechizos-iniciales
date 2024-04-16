@@ -19,10 +19,32 @@ Considerar que:
 - la vida del enemigo no puede ser menor que la del jugador
 - cada hechizo tiene un valor de daño unico y el enemigo tiene 1 solo hechizo de ataque
  */
-
+const VIDA_MAX_VOLDEMORT = 300;
+const VIDA_MAX_MAGO = 250;
+const HECHIZO_ENEMIGO = 50;
+const HECHIZO_CORRECTO = 20 ;
+const HECHIZO_CORRECTO2 = 25;
+const HECHIZO_CORRECTO3 = 50;
 
 function main() {
-    
+    let vidaMaxEnemigo=VIDA_MAX_VOLDEMORT;
+    let vidaMaxMago=VIDA_MAX_MAGO;
+    let hechizoVoldemort=HECHIZO_ENEMIGO
+    let hechizoIngresado=HECHIZO_CORRECTO
+    let segundoHechizoIngresado=HECHIZO_CORRECTO2
+    let tercerHechizoIngresado=HECHIZO_CORRECTO3
+    let numeroIngresado=0
+    let numeroAleatorio=Math.floor(Math.random() * 4);
+    while (vidaMaxEnemigo>0 & vidaMaxMago>0) {
+        console.log("Ingrese el hechizo correcto en base a un numero");
+        numeroIngresado=leer()
+        if (numeroIngresado==numeroAleatorio) {
+            vidaMaxEnemigo=vidaMaxEnemigo-hechizoIngresado
+            console.log("Acertaste tu hechizo, la vida actual de Voldemort es",vidaMaxEnemigo);
+
+            
+        }
+    }
 }
 
 

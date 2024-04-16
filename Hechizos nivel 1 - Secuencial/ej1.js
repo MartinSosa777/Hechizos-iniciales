@@ -22,3 +22,6 @@ function main() {
 
 
 main();
+ 
+
+/* ┃┃ es un or && es un and*/       
