@@ -21,10 +21,49 @@ const leer = require("prompt-sync")();
  * 
  */
 
-
+const SANGUIJUELAS_REV=3;
+const PULVERIZADO_DE_CUERNO=5;
+const PELO_DE_GATO=1;
+const COLAS_DE_SERPIENTES=2;
 function main() {
+let sanguijelasRev=SANGUIJUELAS_REV
+let pulverizadoCuerno=PULVERIZADO_DE_CUERNO
+let peloGato=PELO_DE_GATO
+let colaSerpiente=COLAS_DE_SERPIENTES
+
+for (let  i= 0; i < 5; i++) {
+    console.log("Agrega a la pocion las sanguijelas reventadas");
+    
+    
+}
+
 
 }
 
 
 main();
+
+
+
+/**
+ * Ej 1
+ * Es crucial que los estudiantes aprendan los nombres de los hechizos correctamente para realizar magia de manera efectiva. En la clase de Encantamientos, los estudiantes deben demostrar su habilidad para recordar y lanzar los hechizos correctamente. Ayuda a simular este proceso creando un programa que solicite al usuario el nombre de un hechizo y le dé un número limitado de intentos para ingresarlo correctamente. Si el usuario ingresa el nombre del hechizo correctamente, el programa lo felicitará y finalizará. Si el usuario no logra ingresar el hechizo correctamente después de los intentos permitidos, el programa lo informará y finalizará.
+ * 
+ * 
+ * Por ejemplo: hechizo "Wingardium leviosa", cantidad de intentos maximos 4
+ * 
+ * Extra: permitir que el programa acepte 3 hechizos diferentes
+ */
+
+function main() {
+    for (let i = 0; i > 5; i++) {
+        console.log("Ingrese el nombre del hechizo correctamente");
+        let nombreHechizo="def hechizo"
+        nombreHechizo=leer();
+         if (nombreHechizo=="Patronus") {;
+            console.log("Felicitaciones ingresaste correctamente el nombre del hechizo");
+            i=5
+        }   else{  
+            console.log("Segui intentando");   
+            }}}
+main(); 

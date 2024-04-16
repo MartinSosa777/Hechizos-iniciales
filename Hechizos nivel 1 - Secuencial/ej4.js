@@ -10,7 +10,16 @@ const leer = require("prompt-sync")();
 
 
 function main() {
+    let edadMago=0
+    let cantDiasPract=0
+    console.log("Que edad tiene el mago?:");
+    edadMago=Number(leer())
+    console.log("Cuantos dias de practica hay?:");
+    cantDiasPract=Number(leer())
+    potencia=edadMago*2
+    console.log("La potencia de el hechizo es de", potencia+cantDiasPract/2);
     
+
 }
 
 
