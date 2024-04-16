@@ -25,45 +25,60 @@ const SANGUIJUELAS_REV=3;
 const PULVERIZADO_DE_CUERNO=5;
 const PELO_DE_GATO=1;
 const COLAS_DE_SERPIENTES=2;
-function main() {
-let sanguijelasRev=SANGUIJUELAS_REV
-let pulverizadoCuerno=PULVERIZADO_DE_CUERNO
-let peloGato=PELO_DE_GATO
-let colaSerpiente=COLAS_DE_SERPIENTES
+function main(){
+let sanguijelasRev=SANGUIJUELAS_REV;
+let pulverizadoCuerno=PULVERIZADO_DE_CUERNO;
+let peloGato=PELO_DE_GATO;
+let colaSerpiente=COLAS_DE_SERPIENTES;
+let peloGatoIngresado=0;
+let sanguijelasRevIngresado=0;
+let pulverizadoCuernoIngresado=0;
+let colaSerpienteIngresado=0;
 
-for (let  i= 0; i < 5; i++) {
+for (let  i= 0; i < 3; i++) {
     console.log("Agrega a la pocion las sanguijelas reventadas");
-    
+    sanguijelasRevIngresado=leer();
+    if (sanguijelasRevIngresado==sanguijelasRev) {
+        console.log("Agregaste el ingrediente correctamente");
+        console.log("Mezcla lentamente durante 30 segundos en direccion horaria");
+        i=3
+    }else
+    console.log("Fallo en la pocion");
+}
+for (let i = 0; i < 5; i++) {
+    console.log("Agrega a la pocion las unidades de pulverizado de cuerno de Bicornio");
+    pulverizadoCuernoIngresado=leer();
+    if (pulverizadoCuernoIngresado==pulverizadoCuerno) {
+        console.log("Agregaste el ingrediente correctamente");
+        console.log("Remueve con la cuchara");
+        i=5
+    }else
+    console.log("Fallo en la pocion");
+}
+for (let i = 0; i < 1; i++) {
+    console.log("Agrega a la pocion los pelos de gatos");
+    peloGatoIngresado=leer();
+    if (peloGatoIngresado==peloGato) {
+        console.log("Agregaste el ingrediente correctamente");
+        console.log("Mezcla suavemente durante 1 minuto en direccion antihoraria");
+        i=1
+    }else
+    console.log("Fallo en la pocion");
     
 }
-
-
+for (let i = 0; i < 2; i++) {
+    console.log("Agrega a la pocion las colas de serpientes");
+    colaSerpienteIngresado=leer()
+    if (colaSerpienteIngresado==colaSerpiente) {
+        console.log("Agregaste el ingrediente correctamente");
+        console.log("Mezcla vigorosamente durante 5 minutos");
+        console.log("Dejar reposar 5 minutos la pocion");
+        i=2
+    }else
+    console.log("Fallo en la pocion");
+}
 }
 
 
 main();
 
-
-
-/**
- * Ej 1
- * Es crucial que los estudiantes aprendan los nombres de los hechizos correctamente para realizar magia de manera efectiva. En la clase de Encantamientos, los estudiantes deben demostrar su habilidad para recordar y lanzar los hechizos correctamente. Ayuda a simular este proceso creando un programa que solicite al usuario el nombre de un hechizo y le dé un número limitado de intentos para ingresarlo correctamente. Si el usuario ingresa el nombre del hechizo correctamente, el programa lo felicitará y finalizará. Si el usuario no logra ingresar el hechizo correctamente después de los intentos permitidos, el programa lo informará y finalizará.
- * 
- * 
- * Por ejemplo: hechizo "Wingardium leviosa", cantidad de intentos maximos 4
- * 
- * Extra: permitir que el programa acepte 3 hechizos diferentes
- */
-
-function main() {
-    for (let i = 0; i > 5; i++) {
-        console.log("Ingrese el nombre del hechizo correctamente");
-        let nombreHechizo="def hechizo"
-        nombreHechizo=leer();
-         if (nombreHechizo=="Patronus") {;
-            console.log("Felicitaciones ingresaste correctamente el nombre del hechizo");
-            i=5
-        }   else{  
-            console.log("Segui intentando");   
-            }}}
-main(); 
