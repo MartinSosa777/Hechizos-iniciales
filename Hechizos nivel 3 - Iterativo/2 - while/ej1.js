@@ -19,34 +19,44 @@ Considerar que:
 - la vida del enemigo no puede ser menor que la del jugador
 - cada hechizo tiene un valor de daño unico y el enemigo tiene 1 solo hechizo de ataque
  */
-const VIDA_MAX_VOLDEMORT = 300;
-const VIDA_MAX_MAGO = 250;
+const VIDA_MAX_VOLDEMORT = 700;
+const VIDA_MAX_MAGO = 500;
 const HECHIZO_ENEMIGO = 50;
-const HECHIZO_CORRECTO = 20 ;
-const HECHIZO_CORRECTO2 = 25;
-const HECHIZO_CORRECTO3 = 50;
-
+const HECHIZO_CORRECTO_0 = 20;
+const HECHIZO_CORRECTO_1 = 25;
+const HECHIZO_CORRECTO_2 = 50;
+const DEF_NUMERO_INGRESADO = 0;
 function main() {
-    let vidaMaxEnemigo=VIDA_MAX_VOLDEMORT;
-    let vidaMaxMago=VIDA_MAX_MAGO;
-    let hechizoVoldemort=HECHIZO_ENEMIGO
-    let hechizoIngresado=HECHIZO_CORRECTO
-    let segundoHechizoIngresado=HECHIZO_CORRECTO2
-    let tercerHechizoIngresado=HECHIZO_CORRECTO3
-    let numeroIngresado=0
-    let numeroAleatorio=Math.floor(Math.random() * 4);
-    while (vidaMaxEnemigo>0 & vidaMaxMago>0) {
-        console.log("Ingrese el hechizo correcto en base a un numero");
-        numeroIngresado=leer()
-        if (numeroIngresado==numeroAleatorio) {
-            vidaMaxEnemigo=vidaMaxEnemigo-hechizoIngresado
-            console.log("Acertaste tu hechizo, la vida actual de Voldemort es",vidaMaxEnemigo);
+    let vidaMaxEnemigo = VIDA_MAX_VOLDEMORT;
+    let vidaMaxMago = VIDA_MAX_MAGO;
+    let hechizoVoldemort = HECHIZO_ENEMIGO
+    let hechizoIngresado = HECHIZO_CORRECTO_0
+    let segundoHechizoIngresado = HECHIZO_CORRECTO_1
+    let tercerHechizoIngresado = HECHIZO_CORRECTO_2
+    let numeroIngresado = DEF_NUMERO_INGRESADO
+    let numeroAleatorio = "def numero aleatorio"
+    while (vidaMaxEnemigo > 0 & vidaMaxMago > 0) {
+        console.log("Ingrese 0 para usar el primer hechizo, 1 para el segundo y 2 para el tercero");
+        numeroIngresado = leer()
+        numeroAleatorio = Math.floor(Math.random() * 4);
+        if (numeroIngresado == numeroAleatorio) {
+            console.log("Ambos fallaron sus hechizos");
+        } else if (numeroIngresado == 0) {
+            vidaMaxEnemigo = vidaMaxEnemigo - hechizoIngresado
+            console.log("Acertaste tu hechizo, la vida actual de Voldemort es", vidaMaxEnemigo);
+        } else if (numeroIngresado == 1) {
+            vidaMaxEnemigo = vidaMaxEnemigo - segundoHechizoIngresado
+            console.log("Acertaste tu hechizo, la vida actual de Voldemort es", vidaMaxEnemigo);
 
+        } else if (numeroIngresado == 2) {
+            vidaMaxEnemigo = vidaMaxEnemigo - tercerHechizoIngresado
+            console.log("Acertaste tu hechizo, la vida actual de Voldemort es", vidaMaxEnemigo);
+        } else if (numeroIngresado != numeroAleatorio) {
+            vidaMaxMago = vidaMaxMago - hechizoVoldemort
+            console.log("Fallaste tu hechizo, tu vida actual es de", vidaMaxMago);
+        } else {
             
         }
     }
 }
-
-
 main();
-

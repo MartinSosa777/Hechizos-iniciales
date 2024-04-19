@@ -15,9 +15,37 @@ Recuerda, tanto tú como tu ser querido pueden recibir ataques de los Dementores
 ¿Estás listo para adentrarte en esta emocionante aventura y demostrar tu valentía contra las fuerzas oscuras? ¡Adelante, el destino del bosque dependen de vos!
  */
 
+const AYUDA_ESPECIAL=0;
+const POSIBILIDAD_PERSONA_MIST=0;
+const RECUERDOS_SER_QUERIDO=0;
+const RECUERDOS_PERSONAJE=0;
+const VIDA_DEMENTORES=0;
+const NUMERO_ALEATORIO=0;
+const NUMERO_INGRESADO=0;
+const ATAQUE_DEMENTORES=0;
 
 function main() {
-    
+    let vidaPersonaje=RECUERDOS_PERSONAJE
+    let vidaSerQuerido=RECUERDOS_SER_QUERIDO
+    let vidaDem=VIDA_DEMENTORES
+    let numeroEspecial=AYUDA_ESPECIAL
+    let personaMisteriosa=POSIBILIDAD_PERSONA_MIST
+    let numeroAleatorio=NUMERO_ALEATORIO
+    let numeroIngresado=NUMERO_INGRESADO
+    let ataqueDem=ATAQUE_DEMENTORES
+        while (vidaPersonaje>0 && vidaSerQuerido>0) {
+        numeroAleatorio=Math.floor(Math.random() * 4);
+        console.log("Ingresa un numero del 0 al 3");
+        numeroIngresado=leer()
+        if (numeroIngresado==numeroAleatorio) {
+            console.log("Lograste defenderte y a tu ser querido");
+            ataqueDem=ataqueDem+1
+            personaMisteriosa=Math.floor(Math.random() * 11);
+        }else if (ataqueDem=5) {
+
+            console.log("Llego alguien a ayudarte")
+        }
+    }
 }
 
 
