@@ -1,7 +1,7 @@
 const leer = require("prompt-sync")();
+const DAÑO_HORROCRUXES_CORDURA = 5.7
+const DAÑO_HORROCRUXES_SALUD = 10.4
 
-const DAÑO_HORROCRUXES_CORDURA = 5.7;
-const DAÑO_HORROCRUXES_SALUD = 10.4;
 let horrocruxesDestruidos = 0;
 let vidaPersonaje = 400;
 let corduraPersonaje = 200;
@@ -109,3 +109,16 @@ if (horrocruxesDestruidos==5) {
     console.log("Pero incluso en la oscuridad más profunda, la llama de la esperanza aún arde, recordando que la lucha nunca termina y que el mañana siempre guarda la promesa de una nueva oportunidad para la redención y la victoria.");
 }}
 main();
+
+
+
+while (vidaPersonaje > 0 && corduraPersonaje > 0 && turnos < 30);
+
+
+main();
+
+
+
+
+
+
