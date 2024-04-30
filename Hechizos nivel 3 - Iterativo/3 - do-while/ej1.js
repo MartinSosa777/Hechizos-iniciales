@@ -34,14 +34,10 @@ function codigoSecretoHelga(min, max) {
 }
 
 function codigoSecretoRavenclaw(min, max) {
-  return (secretoResuelto4 = String.fromCharCode(
-    Math.random() * (max - min) + min
-  ));
+  return String.fromCharCode(Math.random() * (max - min) + min);
 }
 function codigoSecretoNagini(min, max) {
-  return (secretoResuelto5 = String.fromCharCode(
-    Math.random() * (max - min) + min
-  ));
+  return String.fromCharCode(Math.random() * (max - min) + min);
 }
 function main() {
   do {
@@ -49,7 +45,7 @@ function main() {
       console.log(
         "Ingrese el numero aleatorio donde se encontraria el codigo R1dd13?"
       );
-      codigoIngresado = 1; //codigoIngresado = leer();
+      codigoIngresado = leer(); //codigoIngresado = leer();
       secretoResuelto1 = 1; //secretoResuelto1 = codigoSecretoRiddle(-3, 21);
       console.log(secretoResuelto1);
       if (codigoIngresado == secretoResuelto1) {
@@ -69,10 +65,11 @@ function main() {
       console.log(
         "Ingrese el numero aleatorio donde se encontraria el codigo ?G4unt!"
       );
-      codigoIngresado=2//codigoIngresado = leer();
-      secretoResuelto2=2//secretoResuelto2 = codigoSecretoGaunt(-100, -71);
+      codigoIngresado = leer(); //codigoIngresado = leer();
+      secretoResuelto2 = 2; //secretoResuelto2 = codigoSecretoGaunt(-100, -71);
       console.log(secretoResuelto2);
-    } else if (codigoIngresado == secretoResuelto2) {
+    }
+    if (codigoIngresado == secretoResuelto2) {
       horrocruxesDestruidos++;
       console.log(
         `Adivinaste el numero, destruiste el Horrocrux ${secretoResuelto2} `
@@ -88,10 +85,11 @@ function main() {
       console.log(
         "Ingrese el número aleatorio donde se encontraría el código de H3l?ga!:"
       );
-      codigoIngresado=3//codigoIngresado = leer();
-      codigoHorrocrux3=3//secretoResuelto3 = codigoSecretoHelga(4, 13);
+      codigoIngresado = leer(); //codigoIngresado = leer();
+      secretoResuelto3 = 3; //secretoResuelto3 = codigoSecretoHelga(4, 13);
       console.log(secretoResuelto3);
-    } else if (codigoIngresado == secretoResuelto3) {
+    }
+    if (codigoIngresado == secretoResuelto3) {
       horrocruxesDestruidos++;
       console.log(
         `Adivinaste el numero, destruiste el Horrocrux H3l?ga!${
@@ -109,10 +107,11 @@ function main() {
       console.log(
         "Ingrese el caracter aleatorio donde se encontraría el código de ?R4vena:"
       );
-      codigoIngresado=4//codigoIngresado = leer();
-      secretoResuelto4//secretoResuelto4 = codigoSecretoRavenclaw(65, 70);
+      codigoIngresado = leer();
+      secretoResuelto4 = codigoSecretoRavenclaw(98, 102);
       console.log(secretoResuelto4.toLowerCase());
-    } else if (codigoIngresado == secretoResuelto4) {
+    }
+    if (codigoIngresado == secretoResuelto4) {
       horrocruxesDestruidos++;
       console.log(
         `Adivinaste el caracter, destruiste el Horrocrux ?R4vena${secretoResuelto4} `
@@ -128,10 +127,11 @@ function main() {
       console.log(
         `Ingrese el caracter aleatorio donde se encontraría el código de N@9ini?${secretoResuelto5}`
       );
-      codigoIngresado=5//codigoIngresado = leer();
-      secretoResuelto5=5//secretoResuelto5 = codigoSecretoNagini(72, 75);
+      codigoIngresado = leer();
+      secretoResuelto5 = codigoSecretoNagini(72, 75);
       console.log(secretoResuelto5.toUpperCase());
-    } else if (codigoIngresado == secretoResuelto5) {
+    }
+    if (codigoIngresado == secretoResuelto5) {
       horrocruxesDestruidos++;
       console.log(
         `Adivinaste el caracter, destruiste el Horrocrux N@9ini?${secretoResuelto5}`
@@ -143,7 +143,7 @@ function main() {
         `Caracter no valido, el Horrocrux te infligio daño.Tu vida actual es:${vidaPersonaje} y tu cordura es:${corduraPersonaje}`
       );
     }
-  } while (vidaPersonaje > 0 && corduraPersonaje > 0 && turnos < 30);
+  } while (vidaPersonaje > 0 && corduraPersonaje > 0 && turnos == 30 && horrocruxesDestruidos<=5);
   if (horrocruxesDestruidos == 5) {
     console.log(
       "¡Victoria para el estudiante valiente que, con coraje y determinación, ha destruido todos los Horrocruxes!"
