@@ -195,6 +195,7 @@ function FINAL_BUENO() {
   console.log(
     "Con cada fragmento de alma oscura eliminado, la luz de la esperanza ha brillado más brillante sobre el mundo mágico."
   );
+  
   console.log(
     "¡Su sacrificio y valentía han salvado a nuestra comunidad de las sombras de la oscuridad, asegurando un futuro lleno de paz y prosperidad para todas las generaciones venideras!"
   );
