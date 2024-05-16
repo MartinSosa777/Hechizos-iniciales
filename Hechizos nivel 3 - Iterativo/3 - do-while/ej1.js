@@ -58,7 +58,7 @@ function main() {
         "Ingrese el numero aleatorio donde se encontraria el codigo R1dd13?"
       );
       codigoIngresado = Number(leer());
-      secretoResuelto1 = 1; //secretoResuelto1 = codigoSecretoRiddle(-3, 21);
+      secretoResuelto1 =codigoSecretoRiddle(-3, 21);
       console.log(secretoResuelto1);
       if (codigoIngresado === secretoResuelto1) {
         console.log(
@@ -84,7 +84,7 @@ function main() {
         "Ingrese el numero aleatorio donde se encontraria el codigo ?G4unt!"
       );
       codigoIngresado = leer();
-      secretoResuelto2 = 2; //secretoResuelto2 = codigoSecretoGaunt(-100, -71);
+      secretoResuelto2 =codigoSecretoGaunt(-100, -71);
       console.log(secretoResuelto2);
       if (codigoIngresado == secretoResuelto2) {
         console.log(
@@ -110,7 +110,7 @@ function main() {
         "Ingrese el número aleatorio donde se encontraría el código de H3l?ga!:"
       );
       codigoIngresado = leer();
-      secretoResuelto3 = 3; //secretoResuelto3 = codigoSecretoHelga(4, 13);
+      secretoResuelto3 =codigoSecretoHelga(4, 13);
       console.log(secretoResuelto3);
       if (codigoIngresado == secretoResuelto3) {
         console.log(
@@ -136,7 +136,7 @@ function main() {
         "Ingrese el caracter aleatorio donde se encontraría el código de ?R4vena:"
       );
       codigoIngresado = leer();
-      secretoResuelto4 = codigoSecretoRavenclaw(97, 98);
+      secretoResuelto4 = codigoSecretoRavenclaw(97, 102);
       console.log(secretoResuelto4.toLowerCase());
       if (codigoIngresado == secretoResuelto4) {
         console.log(
@@ -162,7 +162,7 @@ function main() {
           `Ingrese el caracter aleatorio donde se encontraría el código de N@9ini?:${secretoResuelto5}`
         );
         codigoIngresado = leer();
-        secretoResuelto5 = codigoSecretoNagini(72, 73);
+        secretoResuelto5 = codigoSecretoNagini(72, 76);
         console.log(secretoResuelto5.toUpperCase());
     if (codigoIngresado == secretoResuelto5) {
       console.log(
