@@ -1,7 +1,6 @@
 const leer = require("prompt-sync")();
 const DAÑO_HORROCRUXES_CORDURA = 5.7;
 const DAÑO_HORROCRUXES_SALUD = 10.4;
-const PROBABILIDAD_MUERTE_INSTANTANEA = 5;
 const AUMENTO_PROBABILIDAD_HORROCRUX_DESTRUIDO = 2.4;
 
 let horrocruxesDestruidos = 0;
@@ -22,7 +21,7 @@ let secretoResuelto2 = 0;
 let secretoResuelto3 = 0;
 let secretoResuelto4 = 0;
 let secretoResuelto5 = 0;
-
+let probabilidadMuerteInstant = 5;
 
 function secretoResueltoNa9ini() {
   console.log(
@@ -104,13 +103,13 @@ function FINAL_MALO() {
 }
 
 function codigoSecretoRiddle(min, max) {
-  return Math.random() * (max - min) + min;
+  return Math.floor(Math.random() * (max - min) + min);
 }
 function codigoSecretoGaunt(min, max) {
-  return Math.random() * (max - min) + min;
+  return Math.floor(Math.random() * (max - min) + min);
 }
 function codigoSecretoHelga(min, max) {
-  return Math.random() * (max - min) + min;
+  return Math.floor(Math.random() * (max - min) + min);
 }
 function codigoSecretoRavenclaw(min, max) {
   return String.fromCharCode(Math.random() * (max - min) + min);
@@ -118,98 +117,136 @@ function codigoSecretoRavenclaw(min, max) {
 function codigoSecretoNagini(min, max) {
   return String.fromCharCode(Math.random() * (max - min) + min);
 }
+function probabilidadMuerteDirecta(min, max) {
+  return Math.floor(Math.random() * (100 - 1) + min);
+}
 
 function main() {
   do {
-    /*if (Math.random() * 100 < PROBABILIDAD_MUERTE_INSTANTANEA) {
+    if (probabilidadMuerteDirecta >= probabilidadMuerteInstant) {
       vidaPersonaje = 0;
       corduraPersonaje = 0;
-      console.log("El personaje ha perdido toda su salud y cordura");*/
-    turnos++;
-    console.log(
-      "Los horrocruxes no pueden derrotarte de inmediato debido a que es tu primer turno"
-    );
-    while (
-      horrocruxesDestruidos === 0 &&
-      vidaPersonaje > 0 &&
-      corduraPersonaje > 0
-    ) {
-      secretoResueltoR1ddl3();
-      if (codigoIngresado === secretoResuelto1) {
-        console.log(
-          `Adivinaste el numero, destruiste el Horrocrux R1ddl3${secretoResuelto1} `
-        );
-        horrocruxesDestruidos++;
-        turnos++;
-      } else {
-        dañoTotal();
-      }
-    }
-    while (
-      horrocruxesDestruidos === 1 &&
-      vidaPersonaje > 0 &&
-      corduraPersonaje > 0
-    ) {
-      secretoResueltoG4aunt();
-      if (codigoIngresado == secretoResuelto2) {
-        console.log(
-          `Adivinaste el numero, destruiste el Horrocrux ?G4aunt!${secretoResuelto2} `
-        );
-        horrocruxesDestruidos++;
-        turnos++;
-      } else {
-        dañoTotal();
-      }
-    }
-    while (
-      horrocruxesDestruidos === 2 &&
-      vidaPersonaje > 0 &&
-      corduraPersonaje > 0
-    ) {
-      secretoResueltoH3lga();
-      if (codigoIngresado == secretoResuelto3) {
-        console.log(
-          `Adivinaste el numero, destruiste el Horrocrux H3l?ga!${secretoResuelto3} `
-        );
-        horrocruxesDestruidos++;
-        turnos++;
-      } else {
-        dañoTotal();
-      }
-    }
-    while (
-      horrocruxesDestruidos === 3 &&
-      vidaPersonaje > 0 &&
-      corduraPersonaje > 0
-    ) {
-      secretoResueltoR4vena();
-      if (codigoIngresado == secretoResuelto4) {
-        console.log(
-          `Adivinaste el caracter, destruiste el Horrocrux ?R4vena:${secretoResuelto4}`
-        );
-        horrocruxesDestruidos++;
-        turnos++;
-      } else {
-        dañoTotal();
-      }
+      console.log("El personaje ha perdido toda su salud y cordura");
+      turnos++;
+      console.log(
+        "Los horrocruxes no pueden derrotarte de inmediato debido a que es tu primer turno"
+      );
+    } else {
       while (
-        horrocruxesDestruidos === 4 &&
+        horrocruxesDestruidos === 0 &&
         vidaPersonaje > 0 &&
         corduraPersonaje > 0
       ) {
-        secretoResueltoNa9ini();
-        if (codigoIngresado == secretoResuelto5) {
-          console.log(
-            `Adivinaste el caracter, destruiste el Horrocrux N@9ini?${secretoResuelto5}`
-          );
-          horrocruxesDestruidos++;
-          turnos++;
-        } else {
-          dañoTotal();
+        if (probabilidadMuerteDirecta >= probabilidadMuerteInstant) {
+          vidaPersonaje = 0;
+          corduraPersonaje = 0;
+          console.log("El personaje ha perdido toda su salud y cordura");
+          secretoResueltoR1ddl3();
+          if (codigoIngresado === secretoResuelto1) {
+            console.log(
+              `Adivinaste el numero, destruiste el Horrocrux R1ddl3${secretoResuelto1} `
+            );
+            horrocruxesDestruidos++;
+            turnos++;
+            probabilidadMuerteInstant +=
+              AUMENTO_PROBABILIDAD_HORROCRUX_DESTRUIDO;
+          } else {
+            dañoTotal();
+          }
+        }
+      }
+      while (
+        horrocruxesDestruidos === 1 &&
+        vidaPersonaje > 0 &&
+        corduraPersonaje > 0
+      ) {
+        if (probabilidadMuerteDirecta >= probabilidadMuerteInstant) {
+          vidaPersonaje = 0;
+          corduraPersonaje = 0;
+          console.log("El personaje ha perdido toda su salud y cordura");
+          secretoResueltoG4aunt();
+          if (codigoIngresado == secretoResuelto2) {
+            console.log(
+              `Adivinaste el numero, destruiste el Horrocrux ?G4aunt!${secretoResuelto2} `
+            );
+            horrocruxesDestruidos++;
+            turnos++;
+          } else {
+            dañoTotal();
+          }
+        }
+      }
+      while (
+        horrocruxesDestruidos === 2 &&
+        vidaPersonaje > 0 &&
+        corduraPersonaje > 0
+      ) {
+        if (probabilidadMuerteDirecta >= probabilidadMuerteInstant) {
+          vidaPersonaje = 0;
+          corduraPersonaje = 0;
+          console.log("El personaje ha perdido toda su salud y cordura");
+          secretoResueltoH3lga();
+          if (codigoIngresado == secretoResuelto3) {
+            console.log(
+              `Adivinaste el numero, destruiste el Horrocrux H3l?ga!${secretoResuelto3} `
+            );
+            horrocruxesDestruidos++;
+            turnos++;
+          } else {
+            dañoTotal();
+          }
+        }
+      }
+      while (
+        horrocruxesDestruidos === 3 &&
+        vidaPersonaje > 0 &&
+        corduraPersonaje > 0
+      ) {
+        if (probabilidadMuerteDirecta >= probabilidadMuerteInstant) {
+          vidaPersonaje = 0;
+          corduraPersonaje = 0;
+          console.log("El personaje ha perdido toda su salud y cordura");
+          secretoResueltoR4vena();
+          if (codigoIngresado == secretoResuelto4) {
+            console.log(
+              `Adivinaste el caracter, destruiste el Horrocrux ?R4vena:${secretoResuelto4}`
+            );
+            horrocruxesDestruidos++;
+            turnos++;
+          } else {
+            dañoTotal();
+          }
+        }
+        while (
+          horrocruxesDestruidos === 4 &&
+          vidaPersonaje > 0 &&
+          corduraPersonaje > 0
+        ) {
+          if (probabilidadMuerteDirecta >= probabilidadMuerteInstant) {
+            vidaPersonaje = 0;
+            corduraPersonaje = 0;
+            console.log("El personaje ha perdido toda su salud y cordura");
+            secretoResueltoNa9ini();
+            if (codigoIngresado == secretoResuelto5) {
+              console.log(
+                `Adivinaste el caracter, destruiste el Horrocrux N@9ini?${secretoResuelto5}`
+              );
+              horrocruxesDestruidos++;
+              turnos++;
+            } else {
+              dañoTotal();
+            }
+          }
         }
       }
     }
-  } while (turnos <= 30 && horrocruxesDestruidos < 5 && corduraPersonaje > 0 && vidaPersonaje > 0)
+    turnos++;
+  } while (
+    turnos <= 30 &&
+    horrocruxesDestruidos < 5 &&
+    corduraPersonaje > 0 &&
+    vidaPersonaje > 0
+  );
   if (horrocruxesDestruidos === 5) {
     FINAL_BUENO();
   } else if (vidaPersonaje <= 0 || corduraPersonaje <= 0 || turnos == 30) {
@@ -218,4 +255,3 @@ function main() {
 }
 
 main();
-
