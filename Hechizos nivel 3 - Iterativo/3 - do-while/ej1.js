@@ -8,14 +8,9 @@ let vidaPersonaje = 400;
 let corduraPersonaje = 200;
 let turnos = 0;
 let codigoIngresado = "def codigo ingresado";
-let codigoHorrocrux1 = "R1dd13";
-let codigoHorrocrux2 = "G4unt!";
-let codigoHorrocrux3 = "H3l?ga!";
-let codigoHorrocrux4 = "?R4vena";
-let codigoHorrocrux5 = "N@9ini?";
 let posibilidadProteccion = 50;
 let probabilidadEsquivo = 20;
-let eleccion_esquivar = "def eleccion esquivo";
+let eleccion_proteger = "def eleccion proteger";
 let secretoResuelto1 = 0;
 let secretoResuelto2 = 0;
 let secretoResuelto3 = 0;
@@ -121,6 +116,10 @@ function probabilidadMuerteDirecta(min, max) {
   return Math.floor(Math.random() * (100 - 1) + min);
 }
 
+function probabilidadNoEsquivar(min, max) {
+  return Math.floor(Math.random() * (100 - 1) + min);
+}
+
 function main() {
   do {
     if (probabilidadMuerteDirecta >= probabilidadMuerteInstant) {
@@ -131,6 +130,20 @@ function main() {
       console.log(
         "Los horrocruxes no pueden derrotarte de inmediato debido a que es tu primer turno"
       );
+      if (probabilidadEsquivo > probabilidadNoEsquivar) {
+        console.log("Esquivaste el ataque del horrocrux");
+      } else {
+        console.log("No esquivaste el ataque del horrocrux");
+      }
+      if (posibilidadProteccion > probabilidadNoEsquivar) {
+        console.log(
+          "Elegi 1 si queres proteger tu cordura o 2 si queres proteger tu vida"
+        );
+      }
+    } else if (eleccion_proteger === 1) {
+      vidaPersonaje--;
+    } else if (eleccion_proteger === 2) {
+      corduraPersonaje--;
     } else {
       while (
         horrocruxesDestruidos === 0 &&
