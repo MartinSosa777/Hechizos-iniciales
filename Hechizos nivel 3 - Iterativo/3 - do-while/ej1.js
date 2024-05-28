@@ -93,6 +93,20 @@ function main() {
       corduraPersonaje = 0;
       console.log("El personaje ha perdido toda su vida y cordura");
       break;
+    }if (probabilidadEsquivo > probabilidadNoEsquivar) {
+        console.log("Esquivaste el ataque del horrocrux");
+      } else {
+        console.log("No esquivaste el ataque del horrocrux");
+      }
+      if (posibilidadProteccion > probabilidadNoEsquivar) {
+        console.log(
+          "Elegi 1 si queres proteger tu cordura o 2 si queres proteger tu vida"
+        );
+      }
+    } else if (eleccion_proteger === 1) {
+      vidaPersonaje--;
+    }else{
+      corduraPersonaje--;
     }
     let secretoAcertado = false;
     switch (horrocruxesDestruidos) {
