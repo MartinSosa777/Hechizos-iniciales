@@ -11,13 +11,30 @@ let posibilidadProteccion = 50;
 let probabilidadEsquivo = 20;
 let probabilidadMuerteInstant = 5;
 let eleccion_proteger = "def eleccion";
+let secretoResuelto1=0;
+let secretoResuelto2=0;
+let secretoResuelto3=0;
+let secretoResuelto4=0;
+let secretoResuelto5=0;
+
+
 
 function secretoResueltoNa9ini() {
   console.log(
     "Ingrese el caracter aleatorio donde se encontraría el código de N@9ini?"
   );
-  const codigoIngresado = leer();
-  const secretoResuelto = "H"; /*codigoSecretoNagini(72, 73);*/
+  let codigoIngresado = leer();
+  let secretoResuelto = "H"; /*codigoSecretoNagini(72, 73);*/
+  if (codigoIngresado == secretoResuelto) {
+    console.log(
+      `Adivinaste el numero, destruiste el Horrocrux N@9ini? ${secretoResuelto} `
+    );
+    horrocruxesDestruidos++;
+    probabilidadMuerteInstant += AUMENTO_PROBABILIDAD_HORROCRUX_DESTRUIDO;
+    turnos++;
+  } else {
+    dañoTotal();
+  }
   console.log(secretoResuelto.toUpperCase());
   return codigoIngresado === secretoResuelto.toUpperCase();
 }
@@ -26,8 +43,18 @@ function secretoResueltoR4vena() {
   console.log(
     "Ingrese el caracter aleatorio donde se encontraría el código de ?R4vena:"
   );
-  const codigoIngresado = leer();
-  const secretoResuelto = "a"; /*codigoSecretoRavenclaw(97, 98);*/
+  let codigoIngresado = leer();
+  let secretoResuelto = "a"; /*codigoSecretoRavenclaw(97, 98);*/
+  if (codigoIngresado == secretoResuelto) {
+    console.log(
+      `Adivinaste el numero, destruiste el Horrocrux ?R4vena ${secretoResuelto} `
+    );
+    horrocruxesDestruidos++;
+    probabilidadMuerteInstant += AUMENTO_PROBABILIDAD_HORROCRUX_DESTRUIDO;
+    turnos++;
+  } else {
+    dañoTotal();
+  }
   console.log(secretoResuelto.toLowerCase());
   return codigoIngresado === secretoResuelto.toLowerCase();
 }
@@ -36,8 +63,18 @@ function secretoResueltoH3lga() {
   console.log(
     "Ingrese el número aleatorio donde se encontraría el código de H3l?ga!:"
   );
-  const codigoIngresado = leer();
-  const secretoResuelto = 3; /*codigoSecretoHelga(4, 13);*/
+  let codigoIngresado = leer();
+  let secretoResuelto = 3; /*codigoSecretoHelga(4, 13);*/
+  if (codigoIngresado == secretoResuelto) {
+    console.log(
+      `Adivinaste el numero, destruiste el Horrocrux H3l?ga! ${secretoResuelto} `
+    );
+    horrocruxesDestruidos++;
+    probabilidadMuerteInstant += AUMENTO_PROBABILIDAD_HORROCRUX_DESTRUIDO;
+    turnos++;
+  } else {
+    dañoTotal();
+  }
   console.log(secretoResuelto);
   return Number(codigoIngresado) === secretoResuelto;
 }
@@ -46,8 +83,18 @@ function secretoResueltoG4aunt() {
   console.log(
     "Ingrese el numero aleatorio donde se encontraria el codigo ?G4aunt!"
   );
-  const codigoIngresado = leer();
-  const secretoResuelto = 2; /*codigoSecretoGaunt(-100, -71);*/
+  let codigoIngresado = leer();
+  let secretoResuelto = 2; /*codigoSecretoGaunt(-100, -71);*/
+  if (codigoIngresado == secretoResuelto) {
+    console.log(
+      `Adivinaste el numero, destruiste el Horrocrux ?G4aunt! ${secretoResuelto} `
+    );
+    horrocruxesDestruidos++;
+    probabilidadMuerteInstant += AUMENTO_PROBABILIDAD_HORROCRUX_DESTRUIDO;
+    turnos++;
+  } else {
+    dañoTotal();
+  }
   console.log(secretoResuelto);
   return Number(codigoIngresado) === secretoResuelto;
 }
@@ -56,27 +103,40 @@ function secretoResueltoR1ddl3() {
   console.log(
     "Ingrese el numero aleatorio donde se encontraria el codigo R1dd13?"
   );
-  const codigoIngresado = leer();
-  const secretoResuelto = 1; /*codigoSecretoRiddle(-3, 21);*/
+  let codigoIngresado = leer();
+  let secretoResuelto = 1; /*codigoSecretoRiddle(-3, 21);*/
+  if (codigoIngresado == secretoResuelto) {
+    console.log(
+      `Adivinaste el numero, destruiste el Horrocrux R1dd13 ${secretoResuelto} `
+    );
+    horrocruxesDestruidos++;
+    probabilidadMuerteInstant += AUMENTO_PROBABILIDAD_HORROCRUX_DESTRUIDO;
+    turnos++;
+  } else {
+    dañoTotal();
+  }
   console.log(secretoResuelto);
   return Number(codigoIngresado) === secretoResuelto;
 }
 function probabilidadEsquivarEleccion() {
   if (probabilidadEsquivo > probabilidadNoEsquivar) {
     console.log("Esquivaste el ataque del horrocrux");
-  } else {
-    console.log("No esquivaste el ataque del horrocrux");
-  }
   if (posibilidadProteccion > probabilidadNoEsquivar) {
     console.log(
       "Elegi 1 si queres proteger tu cordura o 2 si queres proteger tu vida"
     );
   } else if (eleccion_proteger === 1) {
-    vidaPersonaje--;
+    vidaPersonaje -= DAÑO_HORROCRUXES_SALUD;;
+    console.log(
+      `Tu vida actual es: ${vidaPersonaje}`
+    );
   } else {
-    corduraPersonaje--;
+    corduraPersonaje -= DAÑO_HORROCRUXES_CORDURA;;
+    console.log(
+      `Tu cordura actual es: ${corduraPersonaje}`
+    );
   }
-}
+}}
 function dañoTotal() {
   vidaPersonaje -= DAÑO_HORROCRUXES_SALUD;
   corduraPersonaje -= DAÑO_HORROCRUXES_CORDURA;
@@ -113,27 +173,26 @@ function main() {
       console.log("El personaje ha perdido toda su vida y cordura");
       break;
     }
-      let secretoAcertado = false;
       switch (horrocruxesDestruidos) {
         case 0:
-          secretoAcertado = secretoResueltoR1ddl3();
+          secretoResuelto1 = secretoResueltoR1ddl3();
           probabilidadEsquivarEleccion();
           break;
         case 1:
+          secretoResuelto2 = secretoResueltoG4aunt();
           probabilidadEsquivarEleccion();
-          secretoAcertado = secretoResueltoG4aunt();
           break;
         case 2:
+          secretoResuelto3 = secretoResueltoH3lga();
           probabilidadEsquivarEleccion();
-          secretoAcertado = secretoResueltoH3lga();
           break;
         case 3:
+          secretoResuelto4= secretoResueltoR4vena();
           probabilidadEsquivarEleccion();
-          secretoAcertado = secretoResueltoR4vena();
           break;
         case 4:
+          secretoResuelto5 = secretoResueltoNa9ini();
           probabilidadEsquivarEleccion();
-          secretoAcertado = secretoResueltoNa9ini();
           break;
       }
       if (horrocruxesDestruidos === 5) {
