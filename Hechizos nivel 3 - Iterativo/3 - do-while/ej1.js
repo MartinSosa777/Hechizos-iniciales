@@ -11,11 +11,11 @@ let posibilidadProteccion = 50;
 let probabilidadEsquivo = 50;
 let probabilidadMuerteInstant = 5;
 let eleccion_proteger = "def eleccion";
-let secretoResuelto1=0;
-let secretoResuelto2=0;
-let secretoResuelto3=0;
-let secretoResuelto4=0;
-let secretoResuelto5=0;
+let secretoResuelto1 = 0;
+let secretoResuelto2 = 0;
+let secretoResuelto3 = 0;
+let secretoResuelto4 = 0;
+let secretoResuelto5 = 0;
 
 
 
@@ -111,42 +111,42 @@ function secretoResueltoR1ddl3() {
     horrocruxesDestruidos++;
     probabilidadMuerteInstant += AUMENTO_PROBABILIDAD_HORROCRUX_DESTRUIDO;
     turnos++;
-  }else {
+  } else {
     dañoTotal();
   }
   console.log(secretoResuelto);
   return Number(codigoIngresado) === secretoResuelto;
 }
 function probabilidadEsquivarEleccion() {
-  }if (posibilidadProteccion > probabilidadNoEsquivar(10) ) {
-    console.log(
-      "Elegi 1 si queres proteger tu cordura o 2 si queres proteger tu vida"
-    );
-    eleccion_proteger=Number(leer());
-  }if (eleccion_proteger === 1) {
-    vidaPersonaje -= DAÑO_HORROCRUXES_SALUD;
-    console.log(
-      `Tu vida actual es: ${vidaPersonaje}`
-    );
-  } else if (eleccion_proteger===2) {
-    corduraPersonaje -= DAÑO_HORROCRUXES_CORDURA;;
-    console.log(
-      `Tu cordura actual es: ${corduraPersonaje}`
-    );
-  }else if (probabilidadEsquivo > probabilidadNoEsquivar) {
-      console.log("Esquivaste el ataque del horrocrux");
-  }else if(horrocruxesDestruidos){
-probabilidadEsquivo-=11.875;
-  }
+} if (posibilidadProteccion > probabilidadNoEsquivar(10)) {
+  console.log(
+    "Elegi 1 si queres proteger tu cordura o 2 si queres proteger tu vida"
+  );
+  eleccion_proteger = Number(leer());
+} if (eleccion_proteger === 1) {
+  vidaPersonaje -= DAÑO_HORROCRUXES_SALUD;
+  console.log(
+    `Tu vida actual es: ${vidaPersonaje}`
+  );
+} else if (eleccion_proteger === 2) {
+  corduraPersonaje -= DAÑO_HORROCRUXES_CORDURA;;
+  console.log(
+    `Tu cordura actual es: ${corduraPersonaje}`
+  );
+} else if (probabilidadEsquivo > probabilidadNoEsquivar) {
+  console.log("Esquivaste el ataque del horrocrux");
+} else if (horrocruxesDestruidos) {
+  probabilidadEsquivo -= 11.875;
+}
 function dañoTotal() {
-    vidaPersonaje -= DAÑO_HORROCRUXES_SALUD;
-    corduraPersonaje -= DAÑO_HORROCRUXES_CORDURA;
-    console.log(
-      `Numero no valido, el Horrocrux te infligio daño. Tu vida actual es: ${vidaPersonaje}, y tu cordura: ${corduraPersonaje}`
-    );
-    turnos++;
-  }
- 
+  vidaPersonaje -= DAÑO_HORROCRUXES_SALUD;
+  corduraPersonaje -= DAÑO_HORROCRUXES_CORDURA;
+  console.log(
+    `Numero no valido, el Horrocrux te infligio daño. Tu vida actual es: ${vidaPersonaje}, y tu cordura: ${corduraPersonaje}`
+  );
+  turnos++;
+}
+
 function probabilidadNoEsquivar(max) {
   return Math.floor(Math.random() * max);
 }
@@ -175,39 +175,39 @@ function main() {
       console.log("El personaje ha perdido toda su vida y cordura");
       break;
     }
-      switch (horrocruxesDestruidos) {
-        case 0:
-          secretoResuelto1 = secretoResueltoR1ddl3();
-          probabilidadEsquivarEleccion();
-          console.log(`Tu turno es:${turnos+1}`);
-          break;
-        case 1:
-          secretoResuelto2 = secretoResueltoG4aunt();
-          probabilidadEsquivarEleccion();
-          console.log(`Tu turno es:${turnos+1}`);
-          break;
-        case 2:
-          secretoResuelto3 = secretoResueltoH3lga();
-          probabilidadEsquivarEleccion();
-          console.log(`Tu turno es:${turnos+1}`);
-          break;
-        case 3:
-          secretoResuelto4= secretoResueltoR4vena();
-          probabilidadEsquivarEleccion();
-          console.log(`Tu turno es:${turnos+1}`);
-          break;
-        case 4:
-          secretoResuelto5 = secretoResueltoNa9ini();
-          probabilidadEsquivarEleccion();
-          console.log(`Tu turno es:${turnos+1}`);
-          break;
-      }
-      if (horrocruxesDestruidos === 5) {
-        FINAL_BUENO();
-      } else if (vidaPersonaje == 0 || corduraPersonaje == 0) {
-        FINAL_MALO();
-      }
+    switch (horrocruxesDestruidos) {
+      case 0:
+        secretoResuelto1 = secretoResueltoR1ddl3();
+        probabilidadEsquivarEleccion();
+        console.log(`Tu turno es:${turnos + 1}`);
+        break;
+      case 1:
+        secretoResuelto2 = secretoResueltoG4aunt();
+        probabilidadEsquivarEleccion();
+        console.log(`Tu turno es:${turnos + 1}`);
+        break;
+      case 2:
+        secretoResuelto3 = secretoResueltoH3lga();
+        probabilidadEsquivarEleccion();
+        console.log(`Tu turno es:${turnos + 1}`);
+        break;
+      case 3:
+        secretoResuelto4 = secretoResueltoR4vena();
+        probabilidadEsquivarEleccion();
+        console.log(`Tu turno es:${turnos + 1}`);
+        break;
+      case 4:
+        secretoResuelto5 = secretoResueltoNa9ini();
+        probabilidadEsquivarEleccion();
+        console.log(`Tu turno es:${turnos + 1}`);
+        break;
     }
+    if (horrocruxesDestruidos === 5) {
+      FINAL_BUENO();
+    } else if (vidaPersonaje == 0 || corduraPersonaje == 0) {
+      FINAL_MALO();
+    }
+  }
   while (
     turnos <= 30 &&
     horrocruxesDestruidos < 5 &&
